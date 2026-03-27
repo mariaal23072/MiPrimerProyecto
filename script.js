@@ -5,7 +5,7 @@ const botonPausa = document.querySelector('.btn-pausa');
 const botonMeRindo = document.querySelector('.btn-meRindo');
 
 // DURACIÓN DEL TEMPORIZADOR
-const min = 25;
+const min = 1;
 let estaCorriendo = false; // Para saber si el temporizador está en marcha o no
 
 // variables para el tiempo
@@ -37,8 +37,10 @@ function actualizarCronometro() {
 
     // Si llega a 0, parar el temporizador
     if (tiempoSegundos === 0) { // === compara el valor y el tipo de dato
-        clearInterval(timerIntervalo); // Detener el intervalo
-        alert("¡Tiempo terminado! ¡Toma un descanso o empieza otro ciclo!");
+        detenerCronometro(); // Se para
+        tiempoSegundos = 60 * min; // Reiniciar el tiempo a X
+        displayTiempo.textContent = min + ':00'; // Mostrar el tiempo reiniciado
+        alert("¡Tiempo terminado! DESCANSA NENA");
     }
 }
 
