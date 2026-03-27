@@ -1,8 +1,56 @@
+/* 1. Centramos todo en la pantalla */
 body {
-    background-color: #e9d8c3; /* Un color crema/rosado pastel muy suave */
+    background-color: #fff5f5; /* Un crema rosado muy suave */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Que ocupe toda la altura de la pantalla */
+    margin: 0;
+    font-family: 'Pixelify Sans', sans-serif; /* Una letra que parece de máquina, estilo pixel */
 }
 
-h1 {
-    color: #ff6b6b; /* Un rojo tomate pastel */
-    font-family: sans-serif;
+/* 2. Le damos forma a la "caja" de la App */
+.pomodoro-app {
+    background-color: rgb(255, 250, 250);
+    padding: 30px;
+    border-radius: 50px; /* Bordes redondeados para que sea 'mono' */
+    border: 10px solid #ff9393; /* Un borde pastel */
+    text-align: center;
+    box-shadow: 0px 10px 0px #ff6b6b; /* Una sombra plana tipo dibujo/pixel */
 }
+
+/* 3. Hacemos el tiempo GRANDE */
+.timer-display {
+    font-size: 80px;
+    color: #ff6b6b;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.botones-container {
+    
+    
+    button {
+        font-family: 'Pixelify Sans', sans-serif;
+        background-color: #ff9393;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer; /* Manita al pasa el ratón*/
+        font-size: 18px;
+        margin: 5px;
+        box-shadow: 0px 3px 0px #ff6b6b; /* Sombra tipo botón de dibujo */
+        transition: all 0.2s ease; /* Transición suave para el efecto hover (ease: acelera-frena-acelera) */
+        
+    }
+
+    button:hover { /* Efecto al pasar el ratón por encima */
+        background-color: #ff6b6b; /* Cambia a un rojo más fuerte al pasar el ratón */
+        transform: translateY(2px); /* Se hunde un poquito al tocarlo */
+        box-shadow: 0px 0px 0px #ff8686; /* Sombra más grande al pasar el ratón */
+    }
+}
+
+
