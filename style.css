@@ -5,7 +5,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90vh; /* Que ocupe toda la altura de la pantalla */
+    height: 100vh; /* Que ocupe toda la altura de la pantalla */
     margin: 0;
     font-family: 'Pixelify Sans', sans-serif; /* Una letra que parece de máquina, estilo pixel */
 }
@@ -22,9 +22,16 @@ body {
 
 /* 3. Hacemos el tiempo GRANDE */
 .timer-display {
+font-family: "Courier New", Courier, monospace;
+
     font-size: 80px;
     color: #ff6b6b;
     font-weight: bold;
+    text-shadow: 
+        1px 0 0 currentColor,
+        -1px 0 0 currentColor,
+        0 1px 0 currentColor,
+        0 -1px 0 currentColor; /* Simula que está en negrita*/
     margin: 20px 0;
 }
 
