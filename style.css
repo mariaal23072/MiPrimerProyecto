@@ -28,10 +28,10 @@ font-family: "Courier New", Courier, monospace;
     color: #ff6b6b;
     font-weight: bold;
     text-shadow: 
-        1px 0 0 currentColor,
-        -1px 0 0 currentColor,
-        0 1px 0 currentColor,
-        0 -1px 0 currentColor; /* Simula que está en negrita*/
+        2px 0 0 currentColor,
+        -2px 0 0 currentColor,
+        0 2px 0 currentColor,
+        0 -2px 0 currentColor; /* Simula que está en negrita*/
     margin: 20px 0;
 }
 
