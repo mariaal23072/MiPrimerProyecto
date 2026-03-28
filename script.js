@@ -5,7 +5,7 @@ const botonPausa = document.querySelector('.btn-pausa');
 const botonMeRindo = document.querySelector('.btn-meRindo');
 
 // DURACIÓN DEL TEMPORIZADOR
-const min = 1;
+const min = 50;
 let estaCorriendo = false; // Para saber si el temporizador está en marcha o no
 
 // variables para el tiempo
