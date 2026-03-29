@@ -15,6 +15,7 @@ body {
    .i1-imagen {
     width: 100%; /* Tamaño de la imagen de inicio */
     height: 100%;
+    object-fit: cover; /* mantiene proporciones sin deformarse */
 
 }
 
@@ -52,6 +53,7 @@ body {
 .tomate-imagen {
     width: 100%; /* Tamaño del tomate */
     height: 100%;
+    /*object-fit: cover; /* mantiene proporciones sin deformarse */
 }
 
 /* 2. Le damos forma a la "caja" de la App */
@@ -60,7 +62,6 @@ body {
     width: 100vw;
     height: 100dvh;
     background-color: #ffece1;
-    text-align: center;
 }
 
 .mensaje-texto {
@@ -102,7 +103,8 @@ body {
     margin: 10px 0; /* Espacio entre el display y los botones */
     position: absolute; /* Para posicionar los botones dentro de la caja */
     top: 85%; /* Posiciona los botones hacia la parte inferior */
-    left: 3%; /* Centra horizontalmente */
+        left: 50%;
+    transform: translateX(-50%); /* truco para centrar con absolute */
     
     button {
         font-family: 'Pixelify Sans', sans-serif;
