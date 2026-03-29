@@ -85,7 +85,8 @@ body {
 
     position: absolute; /* Para colocar el tiempo sobre la imagen del tomate */
     top: 10%; /* Centrar verticalmente */
-    left: 18%; /* Centrar horizontalmente */
+    left: 50%;
+    transform: translateX(-50%);
     font-family: "Courier New", Courier, monospace;
 
     font-size: 80px;
@@ -107,7 +108,8 @@ body {
     margin: 10px 0; /* Espacio entre el display y los botones */
     position: absolute; /* Para posicionar los botones dentro de la caja */
     top: 85%; /* Posiciona los botones hacia la parte inferior */
-    left: 4%;
+        left: 50%;
+    transform: translateX(-50%);
     
      
     button {
@@ -144,7 +146,10 @@ body {
 
     position: absolute; /* Para colocar el tiempo sobre la imagen del tomate */
     top: 44%; /* Centrar verticalmente */
-    left: 10%; /* Centrar horizontalmente */
+    
+    left: 50%;
+    transform: translateX(-50%);
+
     font-family: "Courier New", Courier, monospace;
     
     button {
@@ -179,7 +184,8 @@ body {
 
     position: absolute; /* Para colocar el tiempo sobre la imagen del tomate */
     top: 51%; /* Centrar verticalmente */
-    left: 20%; /* Centrar horizontalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%);
     font-family: "Courier New", Courier, monospace;
     
     button {
