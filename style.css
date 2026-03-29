@@ -86,11 +86,10 @@ body {
     
     font-family: "Gluten", cursive;
     font-size: 18px;
-    color: #333;
+    color: #7a2222;
     margin-bottom: 20px;
     font-weight: bold;
     font-size: 19px;
-    text-shadow: 1px 1px 0px #ff9393; /* Sombra para que resalte más */
 }
 
 /* 3. Hacemos el tiempo GRANDE */

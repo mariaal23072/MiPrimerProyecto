@@ -28,23 +28,24 @@ const framesSano = ['fotos/tomate/t1.png', 'fotos/tomate/t2.png',
                 'fotos/tomate/t5.png', 'fotos/tomate/t6.png', 
                 'fotos/tomate/t5.png', 'fotos/tomate/t4.png', 'fotos/tomate/t3.png',
                 'fotos/tomate/t2.png'];
-const framesPodrido75 = ['fotos/tomate/p1.png', 'fotos/tomate/p2.png',
-                'fotos/tomate/p3.png', 'fotos/tomate/p4.png',
-                'fotos/tomate/p5.png', 'fotos/tomate/p6.png',
-                'fotos/tomate/p5.png', 'fotos/tomate/p4.png', 'fotos/tomate/p3.png',
-                'fotos/tomate/p2.png'];
-const framesPodrido50 = ['fotos/tomate/p1.png', 'fotos/tomate/p2.png',
-                'fotos/tomate/p3.png', 'fotos/tomate/p4.png',
-                'fotos/tomate/p5.png', 'fotos/tomate/p6.png',
-                'fotos/tomate/p5.png', 'fotos/tomate/p4.png', 'fotos/tomate/p3.png',
-                'fotos/tomate/p2.png'];
-const framesPodrido25 = ['fotos/tomate/p1.png', 'fotos/tomate/p2.png',
-                'fotos/tomate/p3.png', 'fotos/tomate/p4.png',
-                'fotos/tomate/p5.png', 'fotos/tomate/p6.png',
-                'fotos/tomate/p5.png', 'fotos/tomate/p4.png', 'fotos/tomate/p3.png',
-                'fotos/tomate/p2.png'];
-                
+const framesP1 = ['fotos/tomate/p11.png', 'fotos/tomate/p12.png',
+                'fotos/tomate/p13.png', 'fotos/tomate/p14.png',
+                'fotos/tomate/p15.png', 'fotos/tomate/p16.png',
+                'fotos/tomate/p15.png', 'fotos/tomate/p14.png', 'fotos/tomate/p13.png',
+                'fotos/tomate/p12.png'];
+const framesP2 = ['fotos/tomate/p21.png', 'fotos/tomate/p22.png',
+                'fotos/tomate/p23.png', 'fotos/tomate/p24.png',
+                'fotos/tomate/p25.png', 'fotos/tomate/p26.png',
+                'fotos/tomate/p25.png', 'fotos/tomate/p24.png', 'fotos/tomate/p23.png',
+                'fotos/tomate/p22.png'];
+const framesP3 = ['fotos/tomate/p31.png', 'fotos/tomate/p32.png',
+                'fotos/tomate/p33.png', 'fotos/tomate/p34.png',
+                'fotos/tomate/p35.png', 'fotos/tomate/p36.png',
+                'fotos/tomate/p35.png', 'fotos/tomate/p34.png', 'fotos/tomate/p33.png',
+                'fotos/tomate/p32.png'];
+
 let frameActual = 0;
+let tiempoTotal = tiempoSegundos; // Guardar el tiempo total para calcular el porcentaje restante
 let frames = framesSano; // Variable para almacenar los frames actuales (sano o podrido)
 
 
@@ -65,8 +66,18 @@ function actualizarCronometro() {
     let minutos = Math.floor(tiempoSegundos / 60); // redondear hacia abajo
     let segundos = tiempoSegundos % 60;
     // PORCENTAJE RESTANTE
-    let porcentaje = (tiempoSegundos / (60 * min)) * 100; // Calcular el porcentaje restante
+    const porcentaje = (tiempoSegundos / tiempoTotal) * 100; // Calcular el porcentaje restante
 
+    // Cambiar los frames del tomate según el porcentaje restante
+    if (porcentaje > 75) {
+    frames = framesSano;
+    } else if (porcentaje > 50) {
+        frames = framesP1;
+    } else if (porcentaje > 25) {
+        frames = framesP2;
+    } else {
+        frames = framesP3;
+    }
 
     // Si seg < 10, mostrar con un cero delante (ej: 09,08,07...)
     if (segundos < 10) segundos = '0' + segundos;
@@ -107,6 +118,7 @@ function detenerCronometro() {
     clearInterval(timerIntervalo); // Detener el intervalo
     clearInterval(animacionIntervalo); // Detener la animación del tomate
     estaCorriendo = false; // marcar que está parado
+
 }
 
 
@@ -126,6 +138,9 @@ btn25.addEventListener('click', () => {
     pomodoroApp.classList.remove('oculto'); // Monstrar app pomodoro
     min = 25; // Actualizar el valor de min para mostrar el tiempo correcto
     tiempoSegundos = 60 * 25; // Reiniciar el tiempo a 25 minutos
+    tiempoTotal = tiempoSegundos; // 👈 sincronizar el total
+    frames = framesSano;          // 👈 resetear al tomate sano
+    frameActual = 0;              // 👈 empezar desde el primer frame
     displayTiempo.textContent = min + ':00'; // Mostrar el tiempo reiniciado
     inicioCronometro(); // Se inicia
 });
@@ -135,6 +150,9 @@ btn45.addEventListener('click', () => {
     pomodoroApp.classList.remove('oculto');
     min = 45; // Actualizar el valor de min para mostrar el tiempo correcto
     tiempoSegundos = 60 * min; // Reiniciar el tiempo a 45 minutos
+    tiempoTotal = tiempoSegundos; // 👈 sincronizar el total
+    frames = framesSano;          // 👈 resetear al tomate sano
+    frameActual = 0;              // 👈 empezar desde el primer frame
     displayTiempo.textContent = min + ':00'; // Mostrar el tiempo reiniciado
     inicioCronometro(); // Se inicia
 });
@@ -145,6 +163,9 @@ btn50.addEventListener('click', () => {
     pomodoroApp.classList.remove('oculto');
     min = 50; // Actualizar el valor de min para mostrar el tiempo correcto
     tiempoSegundos = 60 * min; // Reiniciar el tiempo a 50 minutos
+    tiempoTotal = tiempoSegundos; // 👈 sincronizar el total
+    frames = framesSano;          // 👈 resetear al tomate sano
+    frameActual = 0;              // 👈 empezar desde el primer frame
     displayTiempo.textContent = min + ':00'; // Mostrar el tiempo reiniciado
     inicioCronometro(); // Se inicia
 });
@@ -158,6 +179,9 @@ btnOtro.addEventListener('click', () => {
     pomodoroApp.classList.remove('oculto');
     min = numero; // Actualizar el valor de min para mostrar el tiempo correcto
     tiempoSegundos = 60 * min; // Reiniciar el tiempo a X minutos
+    tiempoTotal = tiempoSegundos; // 👈 sincronizar el total
+    frames = framesSano;          // 👈 resetear al tomate sano
+    frameActual = 0;              // 👈 empezar desde el primer frame
     displayTiempo.textContent = min + ':00'; // Mostrar el tiempo reiniciado
     inicioCronometro(); // Se inicia
 });
