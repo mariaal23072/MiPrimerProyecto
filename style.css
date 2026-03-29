@@ -5,8 +5,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 390px;
-    height: 844px;
+    width: 100vw;
+    height: 100dvh;
 
     margin: 0;
     font-family: 'Pixelify Sans', sans-serif; /* Una letra que parece de máquina, estilo pixel */
@@ -22,8 +22,8 @@ body {
 .pantalla-inicio {
 
     position: relative; /* Para posicionar la imagen del tomate dentro de esta caja */
-    width: 390px;
-    height: 844px;
+    width: 100vw;
+    height: 100dvh;
     background-color: #ffece1;
     text-align: center;
 
@@ -49,8 +49,8 @@ body {
 /* 2. Le damos forma a la "caja" de la App */
 .pomodoro-app {
     position: relative; /* Para posicionar la imagen del tomate dentro de esta caja */
-    width: 390px;
-    height: 844px;
+    width: 100vw;
+    height: 100dvh;
     background-color: #ffece1;
     text-align: center;
 }
