@@ -267,6 +267,41 @@ body {
     }
 }
 
+.musica {
+    
+    display: flex; /* Para colocar los botones en fila */
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin: 10px 0; /* Espacio entre el display y los botones */
+    /*POSICION*/
+    position: absolute; /* Para posicionar los botones dentro de la caja */
+    top: 3%; /* Posiciona los botones hacia la parte inferior */
+    left: 79.5%; /* Centra horizontalmente */
+
+
+    
+    button {
+        font-family: 'Pixelify Sans', sans-serif;
+        background-color: #ff9393;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer; /* Manita al pasa el ratón*/
+        font-size: 18px;
+        margin: 5px;
+        box-shadow: 0px 3px 0px #ff6b6b; /* Sombra tipo botón de dibujo */
+        transition: all 0.2s ease; /* Transición suave para el efecto hover (ease: acelera-frena-acelera) */
+        
+    }
+
+    button:hover { /* Efecto al pasar el ratón por encima */
+        background-color: #ff6b6b; /* Cambia a un rojo más fuerte al pasar el ratón */
+        transform: translateY(2px); /* Se hunde un poquito al tocarlo */
+        box-shadow: 0px 1px 0px #ff8686; /* Sombra más grande al pasar el ratón */
+    }
+}
+
 
 
 

@@ -11,6 +11,7 @@ const pomodoroApp = document.querySelector('.pomodoro-app');
 const miImput = document.querySelector('.mi-input');
 const btnOtro = document.querySelector('.btn-otro');
 const btnAtras = document.querySelector('.btn-atras');
+const btnMusica = document.querySelector('.btn-musica');
 
 // DURACIÓN DEL TEMPORIZADOR
 let min = 50;
@@ -129,4 +130,9 @@ btnAtras.addEventListener('click', () => {
     pantallaInicio.classList.remove('oculto'); // Mostrar pantalla inicio
     pomodoroApp.classList.add('oculto'); // Ocultar app pomodoro
     detenerCronometro(); // Se para
+});
+
+btnMusica.addEventListener('click', () => {
+    // Aquí puedes agregar la lógica para reproducir música de fondo
+    alert("MÚSICA DISPONIBLE PRÓXIMAMENTE 🎶");
 });
