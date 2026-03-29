@@ -7,8 +7,8 @@ body {
     justify-content: center;
     width: 100vw;
     height: 100dvh;
-
-    margin: 0;
+    max-width: 430px; /* no se estira más de esto (para PC)*/
+    margin: 0 auto;
     font-family: 'Pixelify Sans', sans-serif; /* Una letra que parece de máquina, estilo pixel */
 }
 
@@ -16,6 +16,11 @@ body {
     width: 100%; /* Tamaño de la imagen de inicio */
     height: 100%;
 
+}
+
+/*PARA QUE EN EL MOVIL SE PEGUE ARRIBA */
+.pantalla-inicio, .pomodoro-app {
+    padding-top: env(safe-area-inset-top);
 }
 
 
@@ -26,6 +31,8 @@ body {
     height: 100dvh;
     background-color: #ffece1;
     text-align: center;
+    max-width: 430px; /* no se estira más de esto (para PC)*/
+    margin: 0 auto;
 
     h1 {
         position: absolute; /* Para colocar el tiempo sobre la imagen del tomate */
@@ -34,6 +41,7 @@ body {
         font-family: 'Pixelify Sans', sans-serif;
         font-size: 24px;
 
+        padding: 0 20px; /* espacio a los lados solo en el título */
     }
 }
 
@@ -58,7 +66,7 @@ body {
 .mensaje-texto {
     position: absolute; /* Para colocar el mensaje sobre la imagen del tomate */
     top: 25%; /* Posiciona el mensaje hacia la parte superior */
-    left: 4%; /* Centra horizontalmente */
+    left: 8%; /* Centra horizontalmente */
     font-size: 18px;
     color: #333;
     margin-bottom: 20px;
