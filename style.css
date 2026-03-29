@@ -31,7 +31,7 @@ body {
 }
 
 /*PARA QUE EN EL MOVIL SE PEGUE ARRIBA */
-.pantalla-inicio, .pomodoro-app {
+.pantalla-inicio, .pomodoro-app, .pantalla-decision {
     padding-top: env(safe-area-inset-top);
 }
 
@@ -53,6 +53,35 @@ body {
         font-size: 20px;
         color: #DB593B;
 
+
+        padding: 0 20px; /* espacio a los lados solo en el título */
+    }
+}
+
+.pantalla-decision {
+
+    position: relative; /* Para posicionar la imagen del tomate dentro de esta caja */
+    width: 100vw;
+    height: 100dvh;
+    background-image: url('fotos/zumo/z5.png');
+    background-size: contain;
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-color: #ffece1;
+    text-align: center;
+    max-width: 430px; /* no se estira más de esto (para PC)*/
+    margin: 0 auto;
+
+    h2 {
+        position: absolute; /* Para colocar el tiempo sobre la imagen del tomate */
+        top: 35%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 50px;
+        color: #bbf7ce;
+        text-shadow: 3px 3px 1px #4d9c66;
+
+ 
 
         padding: 0 20px; /* espacio a los lados solo en el título */
     }
@@ -241,7 +270,7 @@ body {
 
 }
 
-.atras {
+.atras, .atras2 {
     
     display: flex; /* Para colocar los botones en fila */
     gap: 10px; /* Espacio entre los botones */
@@ -308,6 +337,42 @@ body {
         background-color: #ff6b6b; /* Cambia a un rojo más fuerte al pasar el ratón */
         transform: translateY(2px); /* Se hunde un poquito al tocarlo */
         box-shadow: 0px 1px 0px #ff8686; /* Sombra más grande al pasar el ratón */
+    }
+}
+
+
+.botones-decision {
+       display: flex; /* Para colocar los botones en fila */
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin: 10px 0; /* Espacio entre el display y los botones */
+    /*POSICION*/
+    position: absolute; /* Para posicionar los botones dentro de la caja */
+    top: 50%; /* Posiciona los botones hacia la parte inferior */
+    left: 50%;
+    transform: translateX(-50%);
+
+
+    
+    button {
+        font-family: "Gluten", cursive;
+        background-color: #6fd18d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer; /* Manita al pasa el ratón*/
+        font-size: 18px;
+        margin: 5px;
+        box-shadow: 0px 3px 0px #4d9c66; /* Sombra tipo botón de dibujo */
+        transition: all 0.2s ease; /* Transición suave para el efecto hover (ease: acelera-frena-acelera) */
+        
+    }
+
+    button:hover { /* Efecto al pasar el ratón por encima */
+        background-color: #4d9c66; /* Cambia a un verde más fuerte al pasar el ratón */
+        transform: translateY(2px); /* Se hunde un poquito al tocarlo */
+        box-shadow: 0px 1px 0px #4d9c66; /* Sombra más grande al pasar el ratón */
     }
 }
 

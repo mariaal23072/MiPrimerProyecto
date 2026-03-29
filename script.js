@@ -12,11 +12,16 @@ const miImput = document.querySelector('.mi-input');
 const btnOtro = document.querySelector('.btn-otro');
 const btnAtras = document.querySelector('.btn-atras');
 const btnMusica = document.querySelector('.btn-musica');
+const pantallaDecision = document.querySelector('.pantalla-decision');
+const btnDescanso = document.querySelector('.btn-descanso');
+const btn10mas = document.querySelector('.btn-10mas');
+const btnAtras2 = document.querySelector('.btn-atras2');
 
 // DURACIÓN DEL TEMPORIZADOR
 let min = 50;
 let estaCorriendo = false; // Para saber si el temporizador está en marcha o no
 let animacionIntervalo = null; // intervalo de la animación del tomate
+let modoExtra = false; // Para saber si estamos en el modo extra de 10 minutos o no
 
 // variables para el tiempo
 let tiempoSegundos = 60 * min; // X minutos en segundos
@@ -48,7 +53,8 @@ let frameActual = 0;
 let tiempoTotal = tiempoSegundos; // Guardar el tiempo total para calcular el porcentaje restante
 let frames = framesSano; // Variable para almacenar los frames actuales (sano o podrido)
 
-
+const framesZumo = ['fotos/zumo/z1.png', 'fotos/zumo/z2.png', 'fotos/zumo/z3.png', 'fotos/zumo/z4.png', 'fotos/zumo/z5.png'];
+const framesZumoReversa = [ 'fotos/zumo/z5.png', 'fotos/zumo/z4.png', 'fotos/zumo/z3.png', 'fotos/zumo/z2.png', 'fotos/zumo/z1.png'];
 
 function iniciarApp() {
     // Mostrar el tiempo inicial en pantalla
@@ -72,6 +78,8 @@ precargarImagenes(framesSano);
 precargarImagenes(framesP1);
 precargarImagenes(framesP2);
 precargarImagenes(framesP3);
+precargarImagenes(framesZumo);
+precargarImagenes(framesZumoReversa);
 
 
 
@@ -89,14 +97,16 @@ function actualizarCronometro() {
     const porcentaje = (tiempoSegundos / tiempoTotal) * 100; // Calcular el porcentaje restante
 
     // Cambiar los frames del tomate según el porcentaje restante
-    if (porcentaje > 75) {
-    frames = framesSano;
-    } else if (porcentaje > 50) {
-        frames = framesP1;
-    } else if (porcentaje > 25) {
-        frames = framesP2;
-    } else {
-        frames = framesP3;
+    if (!modoExtra ) {
+        if (porcentaje > 75) {
+        frames = framesSano;
+        } else if (porcentaje > 50) {
+            frames = framesP1;
+        } else if (porcentaje > 25) {
+            frames = framesP2;
+        } else {
+            frames = framesP3;
+        }
     }
 
     // Si seg < 10, mostrar con un cero delante (ej: 09,08,07...)
@@ -110,7 +120,11 @@ function actualizarCronometro() {
         detenerCronometro(); // Se para
         tiempoSegundos = 60 * min; // Reiniciar el tiempo a X
         displayTiempo.textContent = min + ':00'; // Mostrar el tiempo reiniciado
-        alert("¡Tiempo terminado! DESCANSA NENA");
+        // APARECE PANTALLA DE DECISIÓN
+        animarZumo(framesZumo, 0, () => {
+            pomodoroApp.classList.add('oculto');
+            pantallaDecision.classList.remove('oculto');
+        });
     }
 }
 
@@ -126,6 +140,19 @@ function inicioCronometro() {
     }
 }
 
+// ANIMAR ZUMO
+function animarZumo(frames, indice=0, callback) {
+    if (indice >= frames.length) {
+        if (callback) callback(); // cuando termina, llama a lo siguiente
+        return;
+    }
+    pomodoroApp.style.backgroundImage = `url('${frames[indice]}')`;
+    setTimeout(() => animarZumo(frames, indice + 1, callback), 80);
+}
+
+
+
+// CLICKS DE LOS BOTONES
 
 // Le decimos qué hacer cuando alguien haga "click"
 botonPlay.addEventListener('click', () => {
@@ -147,10 +174,11 @@ botonPausa.addEventListener('click', () => {
 });
 
 botonMeRindo.addEventListener('click', () => {
-    tiempoSegundos = 60 * min; // Reiniciar el tiempo a X
-    displayTiempo.textContent = min + ':00'; // Mostrar el tiempo reiniciado
     detenerCronometro(); // Se para
-
+    animarZumo(framesZumo, 0, () => {
+        pomodoroApp.classList.add('oculto'); // Ocultar app pomodoro
+        pantallaDecision.classList.remove('oculto'); // Mostrar pantalla inicio
+    });
 });
 
 btn25.addEventListener('click', () => {
@@ -212,10 +240,33 @@ btnAtras.addEventListener('click', () => {
     detenerCronometro(); // Se para
 });
 
+btnAtras2.addEventListener('click', () => {
+    pantallaInicio.classList.remove('oculto'); // Mostrar pantalla inicio
+    pantallaDecision.classList.add('oculto'); // Ocultar app pomodoro
+});
+
 btnMusica.addEventListener('click', () => {
     // Aquí puedes agregar la lógica para reproducir música de fondo
     alert("MÚSICA DISPONIBLE PRÓXIMAMENTE 🎶");
 });
 
+// PANTALLA DECISION BOTONES
+btnDescanso.addEventListener('click', () => {
+    // Aquí puedes agregar la lógica para iniciar un temporizador de descanso
+    alert("TEMPORIZADOR DE DESCANSO PRÓXIMAMENTE 🛌");
+});
 
-
+btn10mas.addEventListener('click', () => {
+    pantallaDecision.classList.add('oculto');
+    pomodoroApp.classList.remove('oculto');
+    animarZumo(framesZumoReversa, 0, () => {
+        min = 10;
+        tiempoSegundos = 60 * min; // Reiniciar el tiempo a X minutos
+        tiempoTotal = tiempoSegundos; // 👈 sincronizar el total
+        modoExtra = true; // Activar modo extra para mostrar el zumo
+        frames = framesP3;          // 👈 resetear
+        frameActual = 0;              // 👈 empezar desde el primer frame
+        displayTiempo.textContent = min + ':00'; // Mostrar el tiempo reiniciado
+        inicioCronometro(); // Se inicia
+    }); 
+});
