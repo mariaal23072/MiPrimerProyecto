@@ -47,27 +47,31 @@ body {
 }
 
 
-
-
-
-.tomate-imagen {
-    width: 100%; /* Tamaño del tomate */
-    height: 100%;
-    /*object-fit: cover; /* mantiene proporciones sin deformarse */
-}
-
 /* 2. Le damos forma a la "caja" de la App */
 .pomodoro-app {
+
     position: relative; /* Para posicionar la imagen del tomate dentro de esta caja */
     width: 100vw;
     height: 100dvh;
     background-color: #ffece1;
+
+    background-image: url('fotos/tomate/t1.png');
+    background-size: contain;    /* no se deforma */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ffece1;   /* el color de fondo si sobra espacio */
+
 }
 
 .mensaje-texto {
     position: absolute; /* Para colocar el mensaje sobre la imagen del tomate */
     top: 25%; /* Posiciona el mensaje hacia la parte superior */
-    left: 8%; /* Centra horizontalmente */
+    
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    
     font-size: 18px;
     color: #333;
     margin-bottom: 20px;
@@ -103,9 +107,9 @@ body {
     margin: 10px 0; /* Espacio entre el display y los botones */
     position: absolute; /* Para posicionar los botones dentro de la caja */
     top: 85%; /* Posiciona los botones hacia la parte inferior */
-        left: 50%;
-    transform: translateX(-50%); /* truco para centrar con absolute */
+    left: 4%;
     
+     
     button {
         font-family: 'Pixelify Sans', sans-serif;
         background-color: #ff9393;
