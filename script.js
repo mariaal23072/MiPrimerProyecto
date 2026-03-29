@@ -55,6 +55,26 @@ function iniciarApp() {
     displayTiempo.textContent = min + ':00'; // Mostrar el tiempo inicial (ej: 25:00)
 }
 
+// CARGAMOS TODAS LAS FOTOS PARA QUE NO HAGA FLASHES
+
+// Guardar las imágenes en memoria
+const imagenesGuardadas = [];
+
+function precargarImagenes(arrayDeRutas) {
+    arrayDeRutas.forEach(ruta => {
+        const img = new Image();
+        img.src = ruta;
+        imagenesGuardadas.push(img);
+    });
+}
+
+precargarImagenes(framesSano);
+precargarImagenes(framesP1);
+precargarImagenes(framesP2);
+precargarImagenes(framesP3);
+
+
+
 iniciarApp(); // para que se ejecute sola
 
 // Para que se vaya actualizando el tiempo
