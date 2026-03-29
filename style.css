@@ -9,8 +9,19 @@ body {
     height: 100dvh;
     max-width: 430px; /* no se estira más de esto (para PC)*/
     margin: 0 auto;
-    font-family: 'Pixelify Sans', sans-serif; /* Una letra que parece de máquina, estilo pixel */
+    font-family: "Gluten", cursive;
+    font-weight: bold;
 }
+
+.gluten-letra {
+  font-family: "Gluten", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+
 
    .i1-imagen {
     width: 100%; /* Tamaño de la imagen de inicio */
@@ -37,10 +48,11 @@ body {
 
     h1 {
         position: absolute; /* Para colocar el tiempo sobre la imagen del tomate */
-        top: 36%; /* Centrar verticalmente */
+        top: 38%; /* Centrar verticalmente */
         left: 0%; /* Centrar horizontalmente */
-        font-family: 'Pixelify Sans', sans-serif;
-        font-size: 24px;
+        font-size: 20px;
+        color: #DB593B;
+
 
         padding: 0 20px; /* espacio a los lados solo en el título */
     }
@@ -72,6 +84,7 @@ body {
     width: 90%;
     text-align: center;
     
+    font-family: "Gluten", cursive;
     font-size: 18px;
     color: #333;
     margin-bottom: 20px;
@@ -87,17 +100,12 @@ body {
     top: 10%; /* Centrar verticalmente */
     left: 50%;
     transform: translateX(-50%);
-    font-family: "Courier New", Courier, monospace;
 
+    font-family: "Gluten", cursive;
     font-size: 80px;
     color: #DB593B;
     font-weight: bold;
-    text-shadow: 
-        1px 0 0 currentColor,
-        -1px 0 0 currentColor,
-        0 1px 0 currentColor,
-        0 -1px 0 currentColor; /* Simula que está en negrita*/
-    margin: 20px 0;
+
 }
 
 .botones-container {
@@ -113,7 +121,7 @@ body {
     
      
     button {
-        font-family: 'Pixelify Sans', sans-serif;
+        font-family: "Gluten", cursive;
         background-color: #ff9393;
         color: white;
         border: none;
@@ -150,10 +158,11 @@ body {
     left: 50%;
     transform: translateX(-50%);
 
-    font-family: "Courier New", Courier, monospace;
+    
+
     
     button {
-        font-family: 'Pixelify Sans', sans-serif;
+        font-family: "Gluten", cursive;
         background-color: #ff9393;
         color: white;
         border: none;
@@ -186,10 +195,10 @@ body {
     top: 51%; /* Centrar verticalmente */
     left: 50%; /* Centrar horizontalmente */
     transform: translateX(-50%);
-    font-family: "Courier New", Courier, monospace;
-    
-    button {
-        font-family: 'Pixelify Sans', sans-serif;
+
+    button {        
+
+        font-family: "Gluten", cursive;
         background-color: #ff9393;
         color: white;
         border: none;
@@ -197,9 +206,10 @@ body {
         border-radius: 10px;
         cursor: pointer; /* Manita al pasa el ratón*/
         font-size: 18px;
-        margin: 5px;
+        margin: 1px;
         box-shadow: 0px 3px 0px #ff6b6b; /* Sombra tipo botón de dibujo */
         transition: all 0.2s ease; /* Transición suave para el efecto hover (ease: acelera-frena-acelera) */
+        
         
     }
 
@@ -210,13 +220,13 @@ body {
     }
 
     .mi-input {
-        font-family: 'Pixelify Sans', sans-serif;
+        font-family: "Gluten", cursive;
         background-color: #ff9393;
         color: white;
         border: none;
-        padding: 10px 20px;
+        padding: 10px 10px;
         border-radius: 10px;
-        font-size: 18px;
+        font-size: 15px;
         width: 60px;
         text-align: center;
         box-shadow: 0px 3px 0px #ff6b6b; /* Sombra tipo botón de dibujo */
@@ -246,7 +256,7 @@ body {
 
     
     button {
-        font-family: 'Pixelify Sans', sans-serif;
+        font-family: "Gluten", cursive;
         background-color: #ff9393;
         color: white;
         border: none;
@@ -281,7 +291,7 @@ body {
 
     
     button {
-        font-family: 'Pixelify Sans', sans-serif;
+        font-family: "Gluten", cursive;
         background-color: #ff9393;
         color: white;
         border: none;

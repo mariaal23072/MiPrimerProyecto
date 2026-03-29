@@ -16,10 +16,37 @@ const btnMusica = document.querySelector('.btn-musica');
 // DURACIÓN DEL TEMPORIZADOR
 let min = 50;
 let estaCorriendo = false; // Para saber si el temporizador está en marcha o no
+let animacionIntervalo = null; // intervalo de la animación del tomate
 
 // variables para el tiempo
 let tiempoSegundos = 60 * min; // X minutos en segundos
 let timerIntervalo = null; // intervalo del temporizador (latido)
+
+// TOMATE FLOTANDO ANIMACIÓN
+const framesSano = ['fotos/tomate/t1.png', 'fotos/tomate/t2.png', 
+                'fotos/tomate/t3.png', 'fotos/tomate/t4.png', 
+                'fotos/tomate/t5.png', 'fotos/tomate/t6.png', 
+                'fotos/tomate/t5.png', 'fotos/tomate/t4.png', 'fotos/tomate/t3.png',
+                'fotos/tomate/t2.png'];
+const framesPodrido75 = ['fotos/tomate/p1.png', 'fotos/tomate/p2.png',
+                'fotos/tomate/p3.png', 'fotos/tomate/p4.png',
+                'fotos/tomate/p5.png', 'fotos/tomate/p6.png',
+                'fotos/tomate/p5.png', 'fotos/tomate/p4.png', 'fotos/tomate/p3.png',
+                'fotos/tomate/p2.png'];
+const framesPodrido50 = ['fotos/tomate/p1.png', 'fotos/tomate/p2.png',
+                'fotos/tomate/p3.png', 'fotos/tomate/p4.png',
+                'fotos/tomate/p5.png', 'fotos/tomate/p6.png',
+                'fotos/tomate/p5.png', 'fotos/tomate/p4.png', 'fotos/tomate/p3.png',
+                'fotos/tomate/p2.png'];
+const framesPodrido25 = ['fotos/tomate/p1.png', 'fotos/tomate/p2.png',
+                'fotos/tomate/p3.png', 'fotos/tomate/p4.png',
+                'fotos/tomate/p5.png', 'fotos/tomate/p6.png',
+                'fotos/tomate/p5.png', 'fotos/tomate/p4.png', 'fotos/tomate/p3.png',
+                'fotos/tomate/p2.png'];
+                
+let frameActual = 0;
+let frames = framesSano; // Variable para almacenar los frames actuales (sano o podrido)
+
 
 
 function iniciarApp() {
@@ -37,6 +64,9 @@ function actualizarCronometro() {
     // Calcular minutos y segundos restantes para mostrar
     let minutos = Math.floor(tiempoSegundos / 60); // redondear hacia abajo
     let segundos = tiempoSegundos % 60;
+    // PORCENTAJE RESTANTE
+    let porcentaje = (tiempoSegundos / (60 * min)) * 100; // Calcular el porcentaje restante
+
 
     // Si seg < 10, mostrar con un cero delante (ej: 09,08,07...)
     if (segundos < 10) segundos = '0' + segundos;
@@ -56,6 +86,11 @@ function actualizarCronometro() {
 function inicioCronometro() {
     if (!estaCorriendo) { // Solo funciona si está parado
         timerIntervalo = setInterval(actualizarCronometro, 1000); // Ejecutar cada 1000 ms (1 segundo)
+        animacionIntervalo = setInterval(() => {
+            pomodoroApp.style.backgroundImage = `url('${frames[frameActual]}')`;
+            frameActual = (frameActual + 1) % frames.length;
+        }, 200); // Cambiar cada 150 ms para una animación fluida
+        
         estaCorriendo = true;
     }
 }
@@ -70,6 +105,7 @@ botonPlay.addEventListener('click', () => {
 // Para que cada vez que se pulse el botón, no avance más rápido
 function detenerCronometro() { 
     clearInterval(timerIntervalo); // Detener el intervalo
+    clearInterval(animacionIntervalo); // Detener la animación del tomate
     estaCorriendo = false; // marcar que está parado
 }
 
@@ -136,3 +172,6 @@ btnMusica.addEventListener('click', () => {
     // Aquí puedes agregar la lógica para reproducir música de fondo
     alert("MÚSICA DISPONIBLE PRÓXIMAMENTE 🎶");
 });
+
+
+
