@@ -13,17 +13,35 @@
 </head>
 <body>
 
-    <div class="pomodoro-app">
+    <div class = "pantalla-inicio">
+        <img src="fotos/inicio/i1.png" class="i1-imagen" alt="i1">
+        <h1> ¿CUÁNTO TIEMPO VAS A CONCENTRATE?</h1>
+        <div class = "botones-tiempo">
+            <button class = "btn-25">25:00</button>
+            <button class = "btn-45">45:00</button>
+            <button class = "btn-50">50:00</button>
+        </div>
+        <div class = "tiempo-elegido">
+            <input class="mi-input" type="number" placeholder="OTRO" step="5" min="5" max="120">
+            <button class = "btn-otro">VUAMOS</button>
 
-        <h1>POMODORO</h1>
+        </div>
+    </div>
 
+
+    <div class="pomodoro-app oculto">
+        <img src="fotos/tomate/t1.png" class="tomate-imagen" alt="tomate">
+
+    
         <div class = "mensaje-texto">TU PUEDES, MÁS SE PERDIÓ EN LA GUERRA</div>
-        <div class = "tomate-personaje">🍅</div>
         <div class = "timer-display"></div>
         <div class = "botones-container">
             <button class="btn-play">PLAY</button>
             <button class="btn-pausa">PAUSA</button>
             <button class="btn-meRindo">ME RINDO...</button>
+        </div>
+        <div class = "atras">
+            <button class="btn-atras">↩︎</button>
         </div>
 
         <!-- <div class = "contador-progreso">X X X</div>*/ -->

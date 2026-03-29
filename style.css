@@ -1,6 +1,6 @@
 /* 1. Centramos todo en la pantalla */
 body {
-    background-color: #fff5f5; /* Un crema rosado muy suave */
+    background-color: #ffece1; /* Un crema rosado muy suave */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,33 +10,225 @@ body {
     font-family: 'Pixelify Sans', sans-serif; /* Una letra que parece de máquina, estilo pixel */
 }
 
+   .i1-imagen {
+    width: 100%; /* Tamaño de la imagen de inicio */
+    height: 100%;
+    border-radius: 40px; /* Bordes redondeados para que sea 'mono' */
+
+}
+
+
+.pantalla-inicio {
+
+    position: relative; /* Para posicionar la imagen del tomate dentro de esta caja */
+    width: 375px;
+    height: 812px;
+    background-color: #ffece1;
+    border-radius: 50px; /* Bordes redondeados para que sea 'mono' */
+    border: 10px solid #ff9393; /* Un borde pastel */
+    text-align: center;
+    box-shadow: 0px 10px 0px #ff6b6b; /* Una sombra plana tipo dibujo/pixel */
+
+    h1 {
+        position: absolute; /* Para colocar el tiempo sobre la imagen del tomate */
+        top: 36%; /* Centrar verticalmente */
+        left: 0%; /* Centrar horizontalmente */
+        font-family: 'Pixelify Sans', sans-serif;
+        font-size: 24px;
+
+    }
+}
+
+
+
+
+
+.tomate-imagen {
+    width: 100%; /* Tamaño del tomate */
+    height: 100%;
+}
+
 /* 2. Le damos forma a la "caja" de la App */
 .pomodoro-app {
-    background-color: rgb(255, 245, 245);
-    padding: 30px;
+    position: relative; /* Para posicionar la imagen del tomate dentro de esta caja */
+    width: 375px;
+    height: 812px;
+    background-color: #ffece1;
     border-radius: 50px; /* Bordes redondeados para que sea 'mono' */
     border: 10px solid #ff9393; /* Un borde pastel */
     text-align: center;
     box-shadow: 0px 10px 0px #ff6b6b; /* Una sombra plana tipo dibujo/pixel */
 }
 
+.mensaje-texto {
+    position: absolute; /* Para colocar el mensaje sobre la imagen del tomate */
+    top: 25%; /* Posiciona el mensaje hacia la parte superior */
+    left: 4%; /* Centra horizontalmente */
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 19px;
+    text-shadow: 1px 1px 0px #ff9393; /* Sombra para que resalte más */
+}
+
 /* 3. Hacemos el tiempo GRANDE */
 .timer-display {
-font-family: "Courier New", Courier, monospace;
+
+    position: absolute; /* Para colocar el tiempo sobre la imagen del tomate */
+    top: 10%; /* Centrar verticalmente */
+    left: 18%; /* Centrar horizontalmente */
+    font-family: "Courier New", Courier, monospace;
 
     font-size: 80px;
-    color: #ff6b6b;
+    color: #DB593B;
     font-weight: bold;
     text-shadow: 
-        2px 0 0 currentColor,
-        -2px 0 0 currentColor,
-        0 2px 0 currentColor,
-        0 -2px 0 currentColor; /* Simula que está en negrita*/
+        1px 0 0 currentColor,
+        -1px 0 0 currentColor,
+        0 1px 0 currentColor,
+        0 -1px 0 currentColor; /* Simula que está en negrita*/
     margin: 20px 0;
 }
 
 .botones-container {
     
+    display: flex; /* Para colocar los botones en fila */
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin: 10px 0; /* Espacio entre el display y los botones */
+    position: absolute; /* Para posicionar los botones dentro de la caja */
+    top: 85%; /* Posiciona los botones hacia la parte inferior */
+    left: 3%; /* Centra horizontalmente */
+    
+    button {
+        font-family: 'Pixelify Sans', sans-serif;
+        background-color: #ff9393;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer; /* Manita al pasa el ratón*/
+        font-size: 18px;
+        margin: 5px;
+        box-shadow: 0px 3px 0px #ff6b6b; /* Sombra tipo botón de dibujo */
+        transition: all 0.2s ease; /* Transición suave para el efecto hover (ease: acelera-frena-acelera) */
+        
+    }
+
+    button:hover { /* Efecto al pasar el ratón por encima */
+        background-color: #ff6b6b; /* Cambia a un rojo más fuerte al pasar el ratón */
+        transform: translateY(2px); /* Se hunde un poquito al tocarlo */
+        box-shadow: 0px 1px 0px #ff8686; /* Sombra más grande al pasar el ratón */
+    }
+
+
+}
+
+/*BOTONES PANTALLA INICIO*/
+.botones-tiempo {
+    
+    display: flex; /* Para colocar los botones en fila */
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin: 10px 0; /* Espacio entre el display y los botones */
+
+    position: absolute; /* Para colocar el tiempo sobre la imagen del tomate */
+    top: 44%; /* Centrar verticalmente */
+    left: 10%; /* Centrar horizontalmente */
+    font-family: "Courier New", Courier, monospace;
+    
+    button {
+        font-family: 'Pixelify Sans', sans-serif;
+        background-color: #ff9393;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer; /* Manita al pasa el ratón*/
+        font-size: 18px;
+        margin: 5px;
+        box-shadow: 0px 3px 0px #ff6b6b; /* Sombra tipo botón de dibujo */
+        transition: all 0.2s ease; /* Transición suave para el efecto hover (ease: acelera-frena-acelera) */
+        
+    }
+
+    button:hover { /* Efecto al pasar el ratón por encima */
+        background-color: #ff6b6b; /* Cambia a un rojo más fuerte al pasar el ratón */
+        transform: translateY(2px); /* Se hunde un poquito al tocarlo */
+        box-shadow: 0px 1px 0px #ff8686; /* Sombra más grande al pasar el ratón */
+    }
+
+}
+
+.tiempo-elegido {
+    
+    display: flex; /* Para colocar los botones en fila */
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin: 10px 0; /* Espacio entre el display y los botones */
+
+    position: absolute; /* Para colocar el tiempo sobre la imagen del tomate */
+    top: 51%; /* Centrar verticalmente */
+    left: 20%; /* Centrar horizontalmente */
+    font-family: "Courier New", Courier, monospace;
+    
+    button {
+        font-family: 'Pixelify Sans', sans-serif;
+        background-color: #ff9393;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer; /* Manita al pasa el ratón*/
+        font-size: 18px;
+        margin: 5px;
+        box-shadow: 0px 3px 0px #ff6b6b; /* Sombra tipo botón de dibujo */
+        transition: all 0.2s ease; /* Transición suave para el efecto hover (ease: acelera-frena-acelera) */
+        
+    }
+
+    button:hover { /* Efecto al pasar el ratón por encima */
+        background-color: #ff6b6b; /* Cambia a un rojo más fuerte al pasar el ratón */
+        transform: translateY(2px); /* Se hunde un poquito al tocarlo */
+        box-shadow: 0px 1px 0px #ff8686; /* Sombra más grande al pasar el ratón */
+    }
+
+    .mi-input {
+        font-family: 'Pixelify Sans', sans-serif;
+        background-color: #ff9393;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 18px;
+        width: 60px;
+        text-align: center;
+        box-shadow: 0px 3px 0px #ff6b6b; /* Sombra tipo botón de dibujo */
+        transition: all
+        0.2s ease; /* Transición suave para el efecto hover (ease: acelera-frena-acelera) */
+    }
+
+    .mi-input:hover { /* Efecto al pasar el ratón por encima */
+        background-color: #ff6b6b; /* Cambia a un rojo más fuerte al pasar el ratón */
+        transform: translateY(2px); /* Se hunde un poquito al tocarlo */
+        box-shadow: 0px 1px 0px #ff8686; /* Sombra más grande al pasar el ratón */
+    }
+
+}
+
+.atras {
+    
+    display: flex; /* Para colocar los botones en fila */
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin: 10px 0; /* Espacio entre el display y los botones */
+    /*POSICION*/
+    position: absolute; /* Para posicionar los botones dentro de la caja */
+    top: 3%; /* Posiciona los botones hacia la parte inferior */
+    left: 9.5%; /* Centra horizontalmente */
+
+
     
     button {
         font-family: 'Pixelify Sans', sans-serif;
@@ -61,3 +253,9 @@ font-family: "Courier New", Courier, monospace;
 }
 
 
+
+
+/* UTILIDADES */
+.oculto {
+    display: none;
+}
